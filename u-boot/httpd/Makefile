@@ -21,7 +21,7 @@ $(LIB): $(OBJS)
 
 #########################################################################
 
-.depend: Makefile fsdata.c $(OBJS:.o=.c)
+.depend: Makefile $(OBJS:.o=.c)
 	$(CC) -M $(CFLAGS) $(OBJS:.o=.c) > $@
 
 sinclude .depend
