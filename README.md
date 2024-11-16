@@ -1,8 +1,13 @@
 U-Boot 1.1.4 modification for routers
 ==========
 
-This project is no longer maintained!
+What is this
 -------------------------------------
+
+As of November 2024, the original u-boot_mod by pepe2k no longer compiles on recent toolchains.
+This repository fixes that and also corrects some other issues.
+
+This repository has only been tested on TP-Link TL-WDR3600 v1 (specifically v1.4), with OpenWrt as the target firmware.
 
 Table of contents
 -----------------
@@ -207,7 +212,8 @@ More information about supported devices:
 Known issues
 ------------
 
-~~Current release is not loading kernel from some versions of TP-Link's official firmware. If you want to use the so-called OFW in any of supported TP-Link's router, do not use this modification. I am working on a solution for this issue.~~
+- This project uses an ancient version of u-boot.
+- Only SPI flash sizes up to and including 16MiB are supported, due to the lack of support for 4-byte addressing mode on the SPI flash driver in this u-boot version (it should be possible to allocate upper areas as a mtd device that would be accessible from Linux only, but this has not been attempted, and may conflict with the ART partition)
 
 Modifications, changes
 ----------------------
